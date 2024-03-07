@@ -1,0 +1,22 @@
+.menu_wrapper {
+  background-color: #f7f6ff;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 12px 8px;
+  border-radius: 32px;
+  align-items: center;
+
+  .menu {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    &.active {
+      background-color: #5061e2;
+      padding: 8px;
+      border-radius: 50%;
+      color: white;
+    }
+  }
+}

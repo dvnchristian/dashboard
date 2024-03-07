@@ -1,0 +1,41 @@
+.analytics_wrapper {
+  width: 100%;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+
+    .title {
+      font-weight: 500;
+    }
+  }
+
+  .graph_wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    canvas {
+      width: 300px;
+      height: 300px;
+    }
+
+    .percent {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, 0);
+      font-size: 36px;
+      bottom: 20%;
+      display: flex;
+      flex-direction: column;
+
+      .done {
+        font-size: 24px;
+        text-align: center;
+        color: #cfcdd7;
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+.chat_box_wrapper {
+  flex: 1;
+  padding-left: 12px;
+
+  .receiver {
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 0;
+  }
+
+  .message_wrapper {
+    display: flex;
+    flex-direction: column;
+
+    .message {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      &.sender {
+        justify-content: flex-end;
+        
+        .text {
+          border-radius: 8px;
+          background-color: #4e5feb;
+          padding: 8px;
+          color: white;
+        }
+      }
+
+      .text {
+        border-radius: 8px;
+        background-color: #f7f7ff;
+        color: black;
+        padding: 8px;
+      }
+    }
+  }
+
+  .text_area_container {
+    display: flex;
+    gap: 12px;
+
+    button {
+      padding: 12px;
+      width: 140px;
+      cursor: pointer;
+    }
+  }
+}

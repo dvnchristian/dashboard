@@ -1,0 +1,79 @@
+.expenses_income_wrapper {
+  p {
+    margin: 0;
+  }
+
+  .title_text {
+    font-weight: 500;
+  }
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    margin: 16px 0;
+    align-items: center;
+
+    .expense,
+    .income {
+      .title {
+        font-size: 12px;
+      }
+      
+      .percentage {
+        font-size: 18px;
+      }
+
+      .value {
+        font-size: 12px;
+        color: #dadadd;
+      }
+    }
+
+    .versus {
+      position: relative;
+      display: inline-block;
+    
+      &:before,
+      &:after {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        background-color: grey;
+      }
+    
+      &:before {
+        top: -17px;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 100%;
+      }
+    
+      &:after {
+        bottom: -17px;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 100%;
+      }
+    }
+  }
+
+  .bar_wrapper {
+    display: flex;
+    gap: 4px;
+    width: 100%;
+
+    .bar {
+      border-radius: 4px;
+      height: 20px;
+
+      &.expense {
+        background-color: #4e5df2;
+      }
+
+      &.income {
+        background-color: #ffa300;
+      }
+    }
+  }
+}

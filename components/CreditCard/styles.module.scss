@@ -1,0 +1,46 @@
+.credit_card_wrapper {
+  width: 100%;
+  border-radius: 12px;
+  background-color: purple;
+  color: white;
+  padding: 12px;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .company {
+        font-size: 18px;
+      }
+    }
+
+    .image_wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      p {
+        margin: 0;
+      }
+
+      .card_detail {
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+}

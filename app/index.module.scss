@@ -1,0 +1,66 @@
+.main {
+  color: black;
+
+  .content {
+    margin-left: 100px;
+    margin-right: 350px;
+    
+    .left {
+      width: 100px;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+    
+    .middle {
+      flex: 65%;
+      padding: 0 16px;
+
+      .header {
+        .content {
+          p {
+            margin: 12px 0;
+          }
+        }
+      }
+
+      .balance_card_wrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        margin-bottom: 16px;
+      }
+
+      .todo_chat_wrapper {
+        display: flex;
+        flex-direction: row;
+        background-color: white;
+        border-radius: 12px;
+        padding: 12px;
+        margin-bottom: 16px;
+
+        .vertical_divider {
+          width: 4px;
+          margin: -12px 0;
+          background-color: #f7f6ff;
+        }
+      }
+
+      .transactions_analytic_wrapper {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 16px;
+        gap: 16px;
+      }
+    }
+  
+    .right {
+      width: 350px;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      right: 0;
+    }
+  }
+}
