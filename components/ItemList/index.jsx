@@ -15,52 +15,56 @@ const ItemList = ({
   const [checkedItems, setCheckedItems] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
 
-  useEffect(() => {
-    const initialCheckedItems = list.map(item => item.isCheck);
-    setCheckedItems(initialCheckedItems);
-  }, [list]);
-
+  const finishedItems = list.filter(item => item.isCheck).length;
+  const countTotalItems = list.length;
+  
   const onChange = (index, e) => {
+    // Set the checked items
     const updatedCheckedItems = [...checkedItems];
     updatedCheckedItems[index] = e.target.checked;
     setCheckedItems(updatedCheckedItems);
-  };
 
+    // Update the list
+    const updatedList = [...list];
+    updatedList[index].isCheck = e.target.checked;
+    setList(updatedList);
+  };
+  
   const handleSelectItem = (index) => {
     setSelectedItem(index);
   };
-
+  
   const handleAddItem = () => {
     const value = prompt('Please state the new item:');
-
+    
     if (value) {
       const updatedList = [...list];
       updatedList.push({
         name: value,
         isCheck: false
       });
-
+      
       setList(updatedList);
     }
   };
-
+  
   const handleEditContent = () => {
     const edit = prompt('Edit Content');
-
+    
     if (edit) {
       const updatedList = [...list];
       updatedList[selectedItem].name = edit;
       setList(updatedList);
     }
   };
-
+  
   const handleDeleteItem = () => {
     const updatedList = [...list];
     updatedList.splice(selectedItem, 1);
-
+    
     setList(updatedList);
   };
-
+  
   const items = [
     {
       label: <div onClick={handleEditContent}>Edit</div>,
@@ -71,6 +75,12 @@ const ItemList = ({
       key: 'delete',
     },
   ];
+  
+  useEffect(() => {
+    // Set checked items initially when given props isCheck === true
+    const initialCheckedItems = list.map(item => item.isCheck);
+    setCheckedItems(initialCheckedItems);
+  }, [list]);
 
   return (
     <div className={styles.item_list_wrapper}>
@@ -102,7 +112,7 @@ const ItemList = ({
 
       <div className={styles.content}>
         <div className={styles.title}>
-          <p><span>{``}</span> Shopping List</p>
+          <p><span>{`${finishedItems}/${countTotalItems} `}</span> Shopping List</p>
 
           <div className={styles.add_item_wrapper} onClick={handleAddItem}>
             <FeatherIcon icon="plus" size="14px" />
