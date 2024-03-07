@@ -11,6 +11,37 @@ import { Doughnut } from "react-chartjs-2";
 import styles from './styles.module.scss';
 
 const Analytics = () => {
+  const rawData = [
+    {
+      progress: 'done',
+      label: 'Done',
+      total: 110,
+    },
+    {
+      progress: 'in-progress',
+      label: 'In Progress',
+      total: 110,
+    },
+    {
+      progress: 'todo',
+      label: 'Todo',
+      total: 130,
+    },
+    {
+      progress: 'backlog',
+      label: '',
+      total: 40,
+    }
+  ];
+  const dataLabel = rawData.filter((data) => data.label !== '').map((data) => data.label);
+  const dataValue = rawData.map((data) => data.total);
+
+  const countFinishedTask = rawData.filter((data) => data.progress !== 'backlog').map((data) => data.total).reduce((a, b) => a + b, 0);
+  const totalTask = dataValue.reduce((a, b) => a + b);
+  const average = Math.ceil((countFinishedTask / totalTask) * 100);
+
+  console.log(average, 'average');
+
   return (
     <div className={styles.analytics_wrapper}>
       <Card variant="full">
@@ -22,11 +53,10 @@ const Analytics = () => {
         <div className={styles.graph_wrapper}>
           <Doughnut
             data={{
-              labels: ['Done', 'In Progress', 'Todo'],
+              labels: dataLabel,
               datasets: [
                 {
-                  label: 'My First Dataset',
-                  data: [110, 120, 130, 40],
+                  data: dataValue,
                   backgroundColor: [
                     '#5459ef',
                     '#ffa500',
@@ -56,7 +86,7 @@ const Analytics = () => {
             }}
           />
         <p className={styles.percent}>
-          90%
+          {`${average}%`}
           <span className={styles.done}>
             Done
           </span>
