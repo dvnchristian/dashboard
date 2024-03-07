@@ -40,8 +40,6 @@ const Analytics = () => {
   const totalTask = dataValue.reduce((a, b) => a + b);
   const average = Math.ceil((countFinishedTask / totalTask) * 100);
 
-  console.log(average, 'average');
-
   return (
     <div className={styles.analytics_wrapper}>
       <Card variant="full">

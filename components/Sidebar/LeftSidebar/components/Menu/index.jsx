@@ -40,8 +40,6 @@ const Menu = () => {
   const handleSetActiveMenu = (index) => {
     setActiveMenu(index);
   };
-  
-  console.log(activeMenu, 'activeMenu');
 
   return (
     <div className={styles.menu_wrapper}>
