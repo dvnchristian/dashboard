@@ -148,7 +148,7 @@ export default function Home() {
         imgProfile: imgProfile1
       }
     ]
-  }
+  };
 
   return (
     <main className={styles.main}>

@@ -1,4 +1,5 @@
 'use client'
+import FeatherIcon from 'feather-icons-react';
 
 // Components
 import Card from '../Card';
@@ -8,7 +9,6 @@ import { Doughnut } from "react-chartjs-2";
 
 // Styles
 import styles from './styles.module.scss';
-import FeatherIcon from 'feather-icons-react';
 
 const Analytics = () => {
   return (

@@ -31,7 +31,6 @@ const listMenu = [
   {
     destination: '/settings',
     icon: 'settings'
-  
   }
 ];
 

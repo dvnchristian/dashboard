@@ -1,10 +1,10 @@
 'use client'
 import React, { useState, useEffect } from 'react';
+import FeatherIcon from 'feather-icons-react';
+import { Checkbox } from 'antd';
 
 // Styles
-import FeatherIcon from 'feather-icons-react';
 import styles from './styles.module.scss';
-import { Checkbox } from 'antd';
 
 const ItemList = ({
   data

@@ -15,7 +15,7 @@ import styles from './styles.module.scss';
 const RightSidebar = () => {
   // Expenses and Income props
   const expense = 7469;
-  const income = 2510
+  const income = 2510;
 
   // Latest spending props
   const dataLastSpending = [
@@ -40,7 +40,8 @@ const RightSidebar = () => {
       type: 'entertainment',
       image: imgCinema
     }
-  ]
+  ];
+
   return (
     <div className={styles.right_sidebar_wrapper}>
       <ExpensesAndIncome expense={expense} income={income} />

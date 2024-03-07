@@ -1,7 +1,9 @@
-// Styles
 import Image from 'next/image';
+
+// Styles
 import styles from './styles.module.scss';
 
+// Images
 import imgCard from '../../public/card.png'
 import imgVisa from '../../public/visa.png'
 
