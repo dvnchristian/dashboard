@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react';
+import { Dropdown } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import Image from 'next/image';
 import cx from 'classnames';
@@ -14,15 +15,18 @@ const LastTransactions = ({
   data
 }) => {
   const { transactions } = data || {};
+
+  // State
   const [activeFilter, setActiveFilter] = useState('newest');
   const [transactionsState, setTransactionsState] = useState(transactions);
+  const [selectedItem, setSelectedItem] = useState(null);
 
   const handleFilter = (filter) => {
     setActiveFilter(filter);
   }
 
   const filterAndSortTransactions = (filter) => {
-    let filteredTransactions = [...transactions];
+    let filteredTransactions = [...transactionsState];
   
     if (filter === 'newest') {
       filteredTransactions.sort((a, b) => {
@@ -46,6 +50,25 @@ const LastTransactions = ({
     return new Date(`${year}-${month}-${day}`);
   };
 
+  
+  const handleSelectItem = (index) => {
+    setSelectedItem(index)
+  };
+  
+  const handleDeleteItem = () => {
+    const updatedTransactions = [...transactionsState];
+    updatedTransactions.splice(selectedItem, 1);
+    
+    setTransactionsState(updatedTransactions);
+  };
+  
+  const items = [
+    {
+      label: <div onClick={handleDeleteItem}>Delete</div>,
+      key: 'delete'
+    }
+  ];
+  
   useEffect(() => {
     if (activeFilter) {
       filterAndSortTransactions(activeFilter);
@@ -85,7 +108,19 @@ const LastTransactions = ({
 
                 <div className={styles.right}>
                   <p>{isIncome ? `+$${amount}` : `-$${amount}`}</p>
-                  <FeatherIcon icon="more-vertical" />
+                  <Dropdown
+                    menu={{
+                      items
+                    }}
+                    trigger={['click']}
+                  >
+                    <FeatherIcon 
+                      icon="more-vertical" 
+                      size="12px" 
+                      className={styles.icon_more} 
+                      onClick={() => handleSelectItem(index)} 
+                    />
+                  </Dropdown>
                 </div>
               </div>
             )

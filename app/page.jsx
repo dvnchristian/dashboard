@@ -65,22 +65,18 @@ export default function Home() {
     endTime: '05:00',
     shoppingList: [
       {
-        id: 1,
         name: 'Macbook',
         isCheck: true
       },
       {
-        id: 2,
         name: 'Bicycle',
         isCheck: false
       },
       {
-        id: 3,
         name: 'Motorcycle',
         isCheck: false
       },
       {
-        id: 4,
         name: 'Iphone 14 pro max',
         isCheck: true
       }
