@@ -1,7 +1,10 @@
 import { DM_Sans } from "next/font/google";
 import "./globals.scss";
 
-const inter = DM_Sans({ subsets: ["latin"], weight: ['100', '300', '400', '500', '700', '900'] });
+const dmSans = DM_Sans({ subsets: ["latin"], weight: ['100', '300', '400', '500', '700', '900'] });
+
+// Analytics
+import { Analytics } from "@vercel/analytics/react"
 
 export const metadata = {
   title: "Create Next App",
@@ -13,7 +16,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={dmSans.className}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

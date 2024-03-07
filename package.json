@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.2.2",
     "antd": "^5.15.0",
     "chart.js": "^4.4.2",
     "classnames": "^2.5.1",
